@@ -20,4 +20,23 @@ export const school = {
     6: new Student('Eugene', [97, 34, 78, 85, 98, 65]),
     7: new Student('Ivan', [76, 89, 78, 98, 98, 99, 89, 96]),
   },
-};
+
+ getMark(from, to){
+  return Object.values(this.students).filter(student => {return student.averageGrade >= from && student.averageGrade <= to})
+    .map(student => {return student.name}).join(", ")
+  },
+  get aGradeStudents(){
+    return this.getMark(90, 100);
+  },
+  get bGradeStudents(){
+    return this.getMark(75, 89);
+  },
+  get cGradeStudents(){
+    return this.getMark(60, 74);
+  },
+  get dGradeStudents(){
+    return this.getMark(0, 59);
+}}
+  
+
+
